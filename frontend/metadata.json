@@ -1,0 +1,6 @@
+{
+  "name": "Economia com História",
+  "description": "Plataforma premium de inteligência e educação económica de Angola com contexto histórico, fórum de debate, rankings de analistas e quizzes interativos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
