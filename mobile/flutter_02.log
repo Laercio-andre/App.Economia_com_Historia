@@ -1,0 +1,141 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d M1908C3JGG
+
+## exception
+
+FormatException: FormatException: Unexpected character (at character 1)
+../../runtime/vm/os_thread.cc: 348: error: Could not start thread DartWorke...
+^
+
+
+```
+#0      _ChunkedJsonParser.fail (dart:convert-patch/convert_patch.dart:1467:5)
+#1      _ChunkedJsonParser.parseNumber (dart:convert-patch/convert_patch.dart:1333:9)
+#2      _ChunkedJsonParser.parse (dart:convert-patch/convert_patch.dart:935:22)
+#3      _JsonStringDecoderSink.addSlice (dart:convert-patch/convert_patch.dart:1555:13)
+#4      _JsonStringDecoderSink.add (dart:convert-patch/convert_patch.dart:1560:5)
+#5      _ConverterStreamEventSink.add (dart:convert/chunked_conversion.dart:70:18)
+#6      _SinkTransformerStreamSubscription._handleData (dart:async/stream_transformers.dart:115:24)
+#7      _rootRunUnary (dart:async/zone.dart:1538:47)
+#8      _CustomZone.runUnary (dart:async/zone.dart:1429:19)
+#9      _CustomZone.runUnaryGuarded (dart:async/zone.dart:1329:7)
+#10     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+#11     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:312:7)
+#12     _SinkTransformerStreamSubscription._add (dart:async/stream_transformers.dart:67:11)
+#13     _EventSinkWrapper.add (dart:async/stream_transformers.dart:13:11)
+#14     _StringAdapterSink.add (dart:convert/string_conversion.dart:228:11)
+#15     _StringAdapterSink.addSlice (dart:convert/string_conversion.dart:233:7)
+#16     _Utf8ConversionSink.addSlice (dart:convert/string_conversion.dart:313:20)
+#17     _Utf8ConversionSink.add (dart:convert/string_conversion.dart:306:5)
+#18     _ConverterStreamEventSink.add (dart:convert/chunked_conversion.dart:70:18)
+#19     _SinkTransformerStreamSubscription._handleData (dart:async/stream_transformers.dart:115:24)
+#20     _rootRunUnary (dart:async/zone.dart:1538:47)
+#21     _CustomZone.runUnary (dart:async/zone.dart:1429:19)
+#22     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1329:7)
+#23     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+#24     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:312:7)
+#25     _SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:798:19)
+#26     _StreamController._add (dart:async/stream_controller.dart:663:7)
+#27     _StreamController.add (dart:async/stream_controller.dart:618:5)
+#28     _Socket._onData (dart:io-patch/socket_patch.dart:2912:41)
+#29     _rootRunUnary (dart:async/zone.dart:1546:13)
+#30     _CustomZone.runUnary (dart:async/zone.dart:1429:19)
+#31     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1329:7)
+#32     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:381:11)
+#33     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:312:7)
+#34     _SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:798:19)
+#35     _StreamController._add (dart:async/stream_controller.dart:663:7)
+#36     _StreamController.add (dart:async/stream_controller.dart:618:5)
+#37     new _RawSocket.<anonymous closure> (dart:io-patch/socket_patch.dart:2331:31)
+#38     _NativeSocket.issueReadEvent.issue (dart:io-patch/socket_patch.dart:1655:14)
+#39     _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+#40     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+#41     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:127:13)
+#42     _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:194:5)
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.35.6, on Linux Mint 21.2 5.15.0-177-generic, locale pt_PT.UTF-8) [3,5s]
+    [32m•[39m Flutter version 3.35.6 on channel stable at /home/andre-laercio/Apps/Flutter/flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision 9f455d2486 (9 months ago), 2025-10-08 14:55:31 -0500
+    [32m•[39m Engine revision d2913632a4
+    [32m•[39m Dart version 3.9.2
+    [32m•[39m DevTools version 2.48.0
+    [32m•[39m Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-lldb-debugging
+
+[32m[✓][39m Android toolchain - develop for Android devices (Android SDK version 36.1.0) [30,7s]
+    [32m•[39m Android SDK at /home/andre-laercio/Android/Sdk
+    [32m•[39m Emulator version 36.2.12.0 (build_id 14214601) (CL:N/A)
+    [32m•[39m Platform android-36, build-tools 36.1.0
+    [32m•[39m ANDROID_HOME = /home/andre-laercio/Android/Sdk
+    [32m•[39m ANDROID_SDK_ROOT = /home/andre-laercio/Android/Sdk
+    [32m•[39m Java binary at: /opt/android-studio-2025.2.3/android-studio/jbr/bin/java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    [32m•[39m Java version OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+    [32m•[39m All Android licenses accepted.
+
+[32m[✓][39m Chrome - develop for the web [2,1s]
+    [32m•[39m Chrome at google-chrome
+
+[31m[✗][39m Linux toolchain - develop for Linux desktop [14,0s]
+    [31m✗[39m clang++ is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install clang), or can be downloaded from https://releases.llvm.org/
+    [31m✗[39m CMake is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install cmake), or can be downloaded from https://cmake.org/download/
+    [31m✗[39m ninja is required for Linux development.
+      It is likely available from your distribution (e.g.: apt install ninja-build), or can be downloaded from https://github.com/ninja-build/ninja/releases
+    [32m•[39m pkg-config version 0.29.2
+    [31m✗[39m GTK 3.0 development libraries are required for Linux development.
+      They are likely available from your distribution (e.g.: apt install libgtk-3-dev)
+    [32m•[39m GL_EXT_framebuffer_blit: no
+    [32m•[39m GL_EXT_texture_format_BGRA8888: no
+
+[32m[✓][39m Android Studio (version 2025.2.3) [1.588ms]
+    [32m•[39m Android Studio at /opt/android-studio-2025.2.3/android-studio
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [32m•[39m Java version OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+
+[33m[!][39m Android Studio (version unknown) [1.467ms]
+    [32m•[39m Android Studio at /opt/android-studio
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [31m✗[39m Unable to determine Android Studio version.
+    [32m•[39m Java version OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+
+[32m[✓][39m IntelliJ IDEA Community Edition (version 2025.2) [1.466ms]
+    [32m•[39m IntelliJ at /opt/idea-community
+    [32m•[39m Flutter plugin version 88.0.0
+    [32m•[39m Dart plugin version 252.25557.23
+
+[32m[✓][39m VS Code (version 1.119.0) [9ms]
+    [32m•[39m VS Code at /usr/share/code
+    [32m•[39m Flutter extension version 3.138.0
+
+[32m[✓][39m VS Code (version 1.93.1) [9ms]
+    [32m•[39m VS Code at /var/lib/flatpak/app/com.visualstudio.code/x86_64/stable/active/files/extra/vscode
+    [32m•[39m Flutter extension can be installed from:
+      🔨 https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+
+[32m[✓][39m Connected device (3 available) [9,4s]
+    [32m•[39m M1908C3JGG (mobile) • NFQKUKT4AYXOEMVK • android-arm64  • Android 12 (API 31)
+    [32m•[39m Linux (desktop)     • linux            • linux-x64      • Linux Mint 21.2 5.15.0-177-generic
+    [32m•[39m Chrome (web)        • chrome           • web-javascript • Google Chrome 148.0.7778.96
+
+[32m[✓][39m Network resources [2,9s]
+    [32m•[39m All expected network resources are available.
+
+[33m![39m Doctor found issues in 2 categories.
+```
