@@ -1,55 +1,43 @@
+server:
+  port: ${SERVER_PORT:8080}
+
 spring:
   application:
-    name: economia-angola
-
+    name: economia_historia
   datasource:
-    url: jdbc:mysql://localhost:3306/economia_angola?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/sistema_geral?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
+    password: Kingrei124
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
     open-in-view: false
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        default_batch_fetch_size: 20
-        jdbc:
-          batch_size: 20
-        order_inserts: true
-        order_updates: true
-
-  data:
-    web:
-      pageable:
-        default-page-size: 20
-        max-page-size: 100
-
-server:
-  port: 8080
-  servlet:
-    context-path: /
+  flyway:
+    enabled: true
+  mail:
+    host: ${SMTP_HOST:smtp.gmail.com}
+    port: ${SMTP_PORT:587}
+    username: ${SMTP_USERNAME:}
+    password: ${SMTP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            trust: smtp.gmail.com
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+          starttls:
+            enable: true
+            required: true
 
 app:
   jwt:
-    secret: ${JWT_SECRET:economia-angola-chave-secreta-dev-256bits-minimo-para-hmac-sha256-segura}
-    expiration-ms: 86400000
-    refresh-expiration-ms: 604800000
-
+    secret: ${JWT_SECRET:minhaChaveSuperSecretaJWT2026ComMaisDe32Caracteres}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:120}
   cors:
-    allowed-origins: http://localhost:3000,http://localhost:5173
-    allowed-methods: GET,POST,PUT,PATCH,DELETE,OPTIONS
-    allowed-headers: "*"
-    allow-credentials: true
-
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-    operations-sorter: method
-    tags-sorter: alpha
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
